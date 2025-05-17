@@ -1,15 +1,18 @@
+{% include styling.html %}
+
+{% include navbar.html %}
+
 {%- include head.html -%}
 
 <body>
 
-  {%- include header.html -%}
-
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
+      
       {{ content }}
     </div>
   </main>
 
-  {%- include footer.html -%}
-
 </body>
+
+{% include footer.html %}

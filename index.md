@@ -1,7 +1,6 @@
 ---
 layout: base
-title: Shaurya's Site
-description: Home Page
+title: Home Page
 hide: true
 ---
 
