@@ -1,32 +1,28 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+// app/api/formSubmit/route.ts
+import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        try {
-            const formData = req.body;
+export async function POST(request: Request) {
+    try {
+        const formData = await request.json();
+        console.log("Received formData in formSubmit:", formData);
 
-            // CSV Header (if the file is empty)
-            const filePath = path.join(process.cwd(), 'responses.csv');
-            const fileExists = fs.existsSync(filePath);
-            let csvString = '';
+        const filePath = path.join(process.cwd(), 'public', 'responses.csv');
+        const fileExists = fs.existsSync(filePath);
+        let csvString = '';
 
-            if (!fileExists || fs.statSync(filePath).size === 0) {
-                csvString += 'TextInput1,TextInput2,Slider1,Slider2,Slider3,Slider4,Checkbox1,Checkbox2\n'; // Add headers
-            }
-
-            // CSV Row
-            csvString += `${formData.textInput1},${formData.textInput2},${formData.slider1Value},${formData.slider2Value},${formData.slider3Value},${formData.slider4Value},${formData.checkbox1Checked},${formData.checkbox2Checked}\n`;
-
-            fs.appendFileSync(filePath, csvString);
-
-            res.status(200).json({ message: 'Form data saved to CSV' });
-        } catch (error) {
-            console.error('Error saving form data:', error);
-            res.status(500).json({ message: 'Error saving form data' });
+        if (!fileExists || fs.statSync(filePath).size === 0) {
+            csvString += 'TextInput1,TextInput2,Slider1,Slider2,Slider3,Slider4,Checkbox1,Checkbox2\n';
         }
-    } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
+
+        csvString += `${formData.textInput1},${formData.textInput2},${formData.slider1Value},${formData.slider2Value},${formData.slider3Value},${formData.slider4Value},${String(formData.checkbox1Checked)},${String(formData.checkbox2Checked)}\n`;
+
+        fs.appendFileSync(filePath, csvString);
+
+        return NextResponse.json({ message: 'Form data written to CSV' }, { status: 200 });
+    } catch (error) {
+        console.error('Error in formSubmit:', error);
+        return NextResponse.json({ message: 'Error processing form' }, { status: 500 });
     }
 }
