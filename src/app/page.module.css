@@ -166,3 +166,8 @@ a.secondary {
     filter: invert();
   }
 }
+
+.mainLink {
+  color: lightblue;
+  text-decoration: underline;
+}
