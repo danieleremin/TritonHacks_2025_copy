@@ -3,6 +3,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import { NextRequest, NextResponse } from 'next/server';
+import { execSync } from 'child_process';
 
 export const config = {
     api: {
@@ -32,6 +33,8 @@ export async function POST(req: NextRequest) {
 
         await fs.writeFile(newFilePath, buffer);
 
+        // const output = execSync('python ' + "\"" + process.cwd() + "/public" + publicFilePath + "\"", { encoding: 'utf-8'});
+        // console.log(output);
         return NextResponse.json({ message: 'File uploaded successfully.', filePath: publicFilePath }, { status: 200 });
 
     } catch (error) {

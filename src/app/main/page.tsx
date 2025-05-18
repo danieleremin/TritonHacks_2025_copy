@@ -6,10 +6,10 @@ import { useState, FormEvent, ChangeEvent, useRef } from 'react';
 export default function Main() {
   const [textInput1, setTextInput1] = useState<string>('');
   const [textInput2, setTextInput2] = useState<string>('');
-  const [slider1Value, setSlider1Value] = useState<number>(50);
-  const [slider2Value, setSlider2Value] = useState<number>(50);
-  const [slider3Value, setSlider3Value] = useState<number>(50);
-  const [slider4Value, setSlider4Value] = useState<number>(50);
+  const [slider1Value, setSlider1Value] = useState<number>(5);
+  const [slider2Value, setSlider2Value] = useState<number>(1);
+  const [slider3Value, setSlider3Value] = useState<number>(0);
+  const [slider4Value, setSlider4Value] = useState<number>(0);
   const [checkbox1Checked, setCheckbox1Checked] = useState<boolean>(false);
   const [checkbox2Checked, setCheckbox2Checked] = useState<boolean>(true);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -136,28 +136,28 @@ const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
           <div className={styles.controls}>
             <h3>Enter something here</h3>
             <form onSubmit={handleSubmit} style={{ all: 'inherit' }}>
-              <input type="text" placeholder="Text Input 1" className={styles.inputField} required value={textInput1} onChange={(e) => setTextInput1(e.target.value)} />
-              <input type="text" placeholder="Text Input 2" className={styles.inputField} value={textInput2} onChange={(e) => setTextInput2(e.target.value)} />
+              <input type="text" placeholder="Location" className={styles.inputField} required value={textInput1} onChange={(e) => setTextInput1(e.target.value)} />
+              <input type="text" placeholder="Human causes" className={styles.inputField} value={textInput2} onChange={(e) => setTextInput2(e.target.value)} />
 
               <div className={styles.sliderRow}>
-                <p>Slider 1</p>
+                <p>1 building</p>
                 <input
                   type="range"
-                  min="0"
-                  max="100"
+                  min="1"
+                  max="10"
                   value={slider1Value}
                   onChange={handleSlider1Change}
                   className={styles.slider}
                 />
-                <div className={styles.sliderValue}>{slider1Value}</div>
+                <div className={styles.sliderValue}>{/* slider1Value */} 10 buildings</div>
               </div>
 
               <div className={styles.sliderRow}>
-                <p>Slider 2</p>
+                <p>Duration (0-24+)</p>
                 <input
                   type="range"
                   min="0"
-                  max="100"
+                  max="24"
                   value={slider2Value}
                   onChange={handleSlider2Change}
                   className={styles.slider}
@@ -165,7 +165,7 @@ const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
                 <div className={styles.sliderValue}>{slider2Value}</div>
               </div>
 
-              <div className={styles.sliderRow}>
+              <div className={styles.sliderRow} style={{ display: 'none' }}>
                 <p>Slider 3</p>
                 <input
                   type="range"
@@ -178,7 +178,7 @@ const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
                 <div className={styles.sliderValue}>{slider3Value}</div>
               </div>
 
-              <div className={styles.sliderRow}>
+              <div className={styles.sliderRow} style={{ display: 'none' }}>
                 <p>Min</p>
                 <input
                   type="range"
@@ -192,7 +192,7 @@ const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
               </div>
 
               <div className={styles.checkBoxRow}>
-                <label htmlFor="checkbox1">Checkbox 1</label>
+                <label htmlFor="checkbox1">Ongoing response?</label>
                 <input
                   type="checkbox"
                   id="checkbox1"
@@ -202,7 +202,7 @@ const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
                 />
               </div>
               <div className={styles.checkBoxRow}>
-                <label htmlFor="checkbox2">Checkbox 2</label>
+                <label htmlFor="checkbox2">Fire hydrant available?</label>
                 <input
                   type="checkbox"
                   id="checkbox2"
