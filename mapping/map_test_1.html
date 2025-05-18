@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_84ebe57c9a4deed383f008ac9fce8027 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_84ebe57c9a4deed383f008ac9fce8027" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_84ebe57c9a4deed383f008ac9fce8027 = L.map(
+                "map_84ebe57c9a4deed383f008ac9fce8027",
+                {
+                    center: [55.3411188, -131.6435254],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fe3ccca5d767ff551375c8e1f19c1aae = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fe3ccca5d767ff551375c8e1f19c1aae.addTo(map_84ebe57c9a4deed383f008ac9fce8027);
+        
+    
+            var marker_f107bb3869159edccf4c3dcc739d1b44 = L.marker(
+                [55.3411188, -131.6435254],
+                {
+}
+            ).addTo(map_84ebe57c9a4deed383f008ac9fce8027);
+        
+    
+            var icon_5050c11ed5b159d065ace7b16fee4e83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_377b6ca76d2004e6905c3b633324f6b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89f24e860aca0ff4131ac55048d3e0fc = $(`<div id="html_89f24e860aca0ff4131ac55048d3e0fc" style="width: 100.0%; height: 100.0%;">Ketchikan Fire Department 70  Bawden ST  Ketchikan AK 99901</div>`)[0];
+                popup_377b6ca76d2004e6905c3b633324f6b4.setContent(html_89f24e860aca0ff4131ac55048d3e0fc);
+            
+        
+
+        marker_f107bb3869159edccf4c3dcc739d1b44.bindPopup(popup_377b6ca76d2004e6905c3b633324f6b4)
+        ;
+
+        
+    
+    
+                marker_f107bb3869159edccf4c3dcc739d1b44.setIcon(icon_5050c11ed5b159d065ace7b16fee4e83);
+            
+</script>
+</html>
